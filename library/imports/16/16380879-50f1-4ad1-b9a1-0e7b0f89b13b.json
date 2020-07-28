@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "grassseam2",
+    "texture": "64476252-3081-436c-8c5e-5284d85441c0",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1600,
+      1600
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1600,
+      1600
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "__type__": "cc.Material",
+  "_name": "Car_mat",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "abc2cb62-7852-4525-a90d-d474487b88f2"
+  },
+  "_techniqueIndex": 0,
+  "_techniqueData": {
+    "0": {
+      "defines": {
+        "USE_EMISSIVE": true,
+        "USE_DIFFUSE_TEXTURE": false,
+        "OUTPUT_TO_GAMMA": true,
+        "USE_NORMAL_TEXTURE": false,
+        "USE_EMISSIVE_TEXTURE": false
+      },
+      "props": {
+        "diffuseColor": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 0,
+          "b": 0,
+          "a": 255
+        },
+        "emissiveColor": {
+          "__type__": "cc.Color",
+          "r": 247,
+          "g": 7,
+          "b": 113,
+          "a": 255
+        }
+      }
+    }
+  }
+}

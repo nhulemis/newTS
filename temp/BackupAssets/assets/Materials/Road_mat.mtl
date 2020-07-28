@@ -1,0 +1,38 @@
+{
+  "__type__": "cc.Material",
+  "_name": "Road_mat",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "abc2cb62-7852-4525-a90d-d474487b88f2"
+  },
+  "_techniqueIndex": 0,
+  "_techniqueData": {
+    "0": {
+      "props": {
+        "diffuseColor": {
+          "__type__": "cc.Color",
+          "r": 233,
+          "g": 227,
+          "b": 180,
+          "a": 255
+        },
+        "emissiveColor": {
+          "__type__": "cc.Color",
+          "r": 223,
+          "g": 64,
+          "b": 64,
+          "a": 255
+        }
+      },
+      "defines": {
+        "OUTPUT_TO_GAMMA": false,
+        "USE_DIFFUSE_TEXTURE": false,
+        "INPUT_IS_GAMMA": false,
+        "USE_ALPHA_TEST": false,
+        "USE_NORMAL_TEXTURE": false,
+        "USE_EMISSIVE": true
+      }
+    }
+  }
+}
