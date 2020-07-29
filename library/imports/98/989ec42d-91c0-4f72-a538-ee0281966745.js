@@ -34,43 +34,85 @@ var Attractor = /** @class */ (function (_super) {
     __extends(Attractor, _super);
     function Attractor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.label = null;
-        _this.text = 'hello';
-        _this.Planet = null;
+        _this.collider = null;
+        _this.gravity = -100;
         return _this;
     }
-    // LIFE-CYCLE CALLBACKS:
-    Attractor.prototype.Attact = function () {
-        var rbCar = this.getComponent(cc.RigidBody3D);
-        var rbPlanet = this.Planet.getComponent(cc.RigidBody3D);
-        var positionCar = new cc.Vec3;
-        this.node.getPosition(positionCar);
-        var positionPlanet = new cc.Vec3;
-        this.Planet.getPosition(positionPlanet);
-        var direction = positionPlanet.sub(positionCar);
-        var distance = direction.mag();
-        var G = 667.408;
-        var forceMag = G * (rbCar.mass * rbPlanet.mass) / Math.pow(distance, 2);
-        var force = new cc.Vec3;
-        direction.mul(forceMag).normalize(force);
-        this.getComponent(cc.RigidBody3D).applyImpulse(force, positionPlanet);
+    Attractor_1 = Attractor;
+    Attractor.prototype.Attact = function (object, dt) {
+        var rbCar = object.getComponent(cc.RigidBody3D);
+        var gravityUp = object.position.sub(this.node.position).normalize();
+        rbCar.applyImpulse(gravityUp.mul(this.gravity), cc.Vec3.ZERO);
+        this.rotateBody(object, dt);
+    };
+    Attractor.prototype.onLoad = function () {
+        Attractor_1.attractor = this;
     };
     Attractor.prototype.start = function () {
         cc.director.getPhysics3DManager().enabled = true;
+        this.collider = this.getComponent(cc.SphereCollider3D);
     };
     Attractor.prototype.update = function (dt) {
-        this.Attact();
+        //this.Attact();
     };
-    __decorate([
-        property(cc.Label)
-    ], Attractor.prototype, "label", void 0);
-    __decorate([
-        property
-    ], Attractor.prototype, "text", void 0);
-    __decorate([
-        property(cc.Node)
-    ], Attractor.prototype, "Planet", void 0);
-    Attractor = __decorate([
+    Attractor.prototype.rotateBody = function (obj, dt) {
+        //node.setRotation(cc.Quat.lerp(null,)
+        //Vector3 gravityUp = (body.position - transform.position).normalized;
+        var gravityUp = obj.position.sub(this.node.position).normalize();
+        //Quaternion targetRotation = Quaternion.FromToRotation(body.transform.up, gravityUp) * body.rotation;
+        var targetRotation = cc.quat();
+        cc.Quat.rotationTo(targetRotation, obj.up, gravityUp).multiply(obj.getRotation(cc.quat()));
+        obj.setRotation(Attractor_1.slerp(cc.quat(), obj.getRotation(cc.quat()), targetRotation, 50 * dt));
+    };
+    /**
+     * !#zh 四元数球面插值
+     * !#en Spherical quaternion interpolation
+     * @typescript
+     * slerp<Out extends IQuatLike, QuatLike_1 extends IQuatLike, QuatLike_2 extends IQuatLike>(out: Out, a: QuatLike_1, b: QuatLike_2, t: number): Out
+     * @static
+     */
+    Attractor.slerp = function (out, a, b, t) {
+        // benchmarks:
+        //    http://jsperf.com/quaternion-slerp-implementations
+        var scale0 = 0;
+        var scale1 = 0;
+        // calc cosine
+        var cosom = a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
+        // adjust signs (if necessary)
+        if (cosom < 0.0) {
+            cosom = -cosom;
+            b.x = -b.x;
+            b.y = -b.y;
+            b.z = -b.z;
+            b.w = -b.w;
+        }
+        // calculate coefficients
+        if ((1.0 - cosom) > 0.000001) {
+            // standard case (slerp)
+            var omega = Math.acos(cosom);
+            var sinom = Math.sin(omega);
+            scale0 = Math.sin((1.0 - t) * omega) / sinom;
+            scale1 = Math.sin(t * omega) / sinom;
+        }
+        else {
+            // "from" and "to" quaternions are very close
+            //  ... so we can do a linear interpolation
+            scale0 = 1.0 - t;
+            scale1 = t;
+        }
+        // calculate final values
+        out.x = scale0 * a.x + scale1 * b.x;
+        out.y = scale0 * a.y + scale1 * b.y;
+        out.z = scale0 * a.z + scale1 * b.z;
+        out.w = scale0 * a.w + scale1 * b.w;
+        return out;
+    };
+    Attractor.prototype.placeOnSurface = function (obj) {
+        obj.position = obj.position.add(obj.forward.mul(this.node.scaleX * this.collider.radius * 0.01));
+    };
+    var Attractor_1;
+    Attractor.attractor = null;
+    Attractor = Attractor_1 = __decorate([
         ccclass
     ], Attractor);
     return Attractor;

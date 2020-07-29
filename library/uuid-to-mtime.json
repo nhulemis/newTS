@@ -515,8 +515,8 @@
     "relativePath": "Scripts"
   },
   "570c2813-45a2-430a-95a6-55d5846a7730": {
-    "asset": 1595953772193,
-    "meta": 1595953772221,
+    "asset": 1596035726800,
+    "meta": 1596035726859,
     "relativePath": "Scenes\\Main.fire"
   },
   "9d173f39-201c-433a-93c3-540e63a2e56f": {
@@ -549,14 +549,29 @@
     "meta": 1595948132730,
     "relativePath": "Materials\\Planet_physic_mat.pmtl"
   },
-  "989ec42d-91c0-4f72-a538-ee0281966745": {
-    "asset": 1595930750000,
-    "meta": 1595948132909,
-    "relativePath": "Scripts\\Attractor.ts"
-  },
   "51c0c309-639f-4952-8d53-e3b63edf5ffc": {
     "asset": 1595930750000,
     "meta": 1595948132956,
     "relativePath": "Scripts\\Controller.ts"
+  },
+  "7b6d5122-29d3-4dfc-8b1e-3880fc12d78c": {
+    "asset": 1596032060328,
+    "meta": 1596032060343,
+    "relativePath": "Materials\\backgrount.mtl"
+  },
+  "37450879-304e-4418-957d-718ac95b126e": {
+    "asset": 1596032601892,
+    "meta": 1596032603751,
+    "relativePath": "Scripts\\Camera.ts"
+  },
+  "989ec42d-91c0-4f72-a538-ee0281966745": {
+    "asset": 1596035509812,
+    "meta": 1596035511352,
+    "relativePath": "Scripts\\Attractor.ts"
+  },
+  "cfaf721a-8e51-408f-86f6-0816a2f3ed0d": {
+    "asset": 1596035684831,
+    "meta": 1596035686629,
+    "relativePath": "Scripts\\Body.ts"
   }
 }
