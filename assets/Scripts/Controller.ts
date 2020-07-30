@@ -56,13 +56,15 @@ export default class Controller extends cc.Component {
 
     lateUpdate(dt)
     {
-        let yRotation = this.node.up.mul(this.rotation * this.rotationSpeed * dt);
+        
+            let yRotation = this.node.up.mul(this.rotation * this.rotationSpeed * dt);
 
-        let deltaRotaion = cc.Quat.fromEuler(cc.quat(),yRotation.x,yRotation.y,yRotation.z);
+            let deltaRotaion = cc.Quat.fromEuler(cc.quat(),yRotation.x,yRotation.y,yRotation.z);
 
-        let targetRotation = deltaRotaion.multiply(this.node.getRotation(cc.quat()));
+            let targetRotation = deltaRotaion.multiply(this.node.getRotation(cc.quat()));
 
-        this.node.setRotation(Attractor.slerp(cc.quat(),this.node.getRotation(cc.quat()),targetRotation,50*dt));
+            this.node.setRotation(Attractor.slerp(cc.quat(),this.node.getRotation(cc.quat()),targetRotation,50*dt));
+       
 
     }
 }
