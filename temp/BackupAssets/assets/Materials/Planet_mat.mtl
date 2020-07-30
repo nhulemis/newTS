@@ -1,6 +1,6 @@
 {
   "__type__": "cc.Material",
-  "_name": "New Material",
+  "_name": "Planet_mat",
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
@@ -11,6 +11,18 @@
     "0": {
       "defines": {
         "USE_DIFFUSE_TEXTURE": true
+      },
+      "props": {
+        "diffuseTexture": {
+          "__uuid__": "64476252-3081-436c-8c5e-5284d85441c0"
+        },
+        "diffuseColor": {
+          "__type__": "cc.Color",
+          "r": 101,
+          "g": 236,
+          "b": 72,
+          "a": 255
+        }
       }
     }
   }

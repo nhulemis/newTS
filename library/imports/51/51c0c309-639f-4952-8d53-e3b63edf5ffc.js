@@ -29,44 +29,59 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var Attractor_1 = require("./Attractor");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var NewClass = /** @class */ (function (_super) {
-    __extends(NewClass, _super);
-    function NewClass() {
+var Controller = /** @class */ (function (_super) {
+    __extends(Controller, _super);
+    function Controller() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.label = null;
-        _this.text = 'hello';
+        _this.rotation = 0;
+        _this.rotationSpeed = 70;
         return _this;
     }
     // LIFE-CYCLE CALLBACKS:
-    NewClass.prototype.onLoad = function () {
+    Controller.prototype.onLoad = function () {
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
     };
-    NewClass.prototype.onKeyUp = function (event) {
-    };
-    NewClass.prototype.onKeyDown = function (event) {
+    Controller.prototype.onKeyUp = function (event) {
         switch (event.keyCode) {
             case cc.macro.KEY.a:
-                console.log("a");
+            case cc.macro.KEY.d:
+                this.rotation = 0;
                 break;
         }
     };
-    NewClass.prototype.start = function () {
+    Controller.prototype.onKeyDown = function (event) {
+        switch (event.keyCode) {
+            case cc.macro.KEY.a:
+                console.log("a");
+                this.rotation = 1;
+                break;
+            case cc.macro.KEY.d:
+                console.log("d");
+                this.rotation = -1;
+                break;
+        }
     };
-    NewClass.prototype.update = function (dt) {
+    Controller.prototype.start = function () {
     };
-    __decorate([
-        property(cc.Label)
-    ], NewClass.prototype, "label", void 0);
+    Controller.prototype.update = function (dt) {
+    };
+    Controller.prototype.lateUpdate = function (dt) {
+        var yRotation = this.node.up.mul(this.rotation * this.rotationSpeed * dt);
+        var deltaRotaion = cc.Quat.fromEuler(cc.quat(), yRotation.x, yRotation.y, yRotation.z);
+        var targetRotation = deltaRotaion.multiply(this.node.getRotation(cc.quat()));
+        this.node.setRotation(Attractor_1.default.slerp(cc.quat(), this.node.getRotation(cc.quat()), targetRotation, 50 * dt));
+    };
     __decorate([
         property
-    ], NewClass.prototype, "text", void 0);
-    NewClass = __decorate([
+    ], Controller.prototype, "rotationSpeed", void 0);
+    Controller = __decorate([
         ccclass
-    ], NewClass);
-    return NewClass;
+    ], Controller);
+    return Controller;
 }(cc.Component));
-exports.default = NewClass;
+exports.default = Controller;
 
 cc._RF.pop();

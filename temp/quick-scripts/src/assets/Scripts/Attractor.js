@@ -35,7 +35,7 @@ var Attractor = /** @class */ (function (_super) {
     function Attractor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.collider = null;
-        _this.gravity = -100;
+        _this.gravity = -900;
         return _this;
     }
     Attractor_1 = Attractor;

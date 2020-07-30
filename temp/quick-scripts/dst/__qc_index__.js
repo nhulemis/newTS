@@ -12,7 +12,6 @@
                         if (!nodeEnv) {__quick_compile_project__.registerModule(__filename, module);}
 require('./assets/Scripts/Attractor');
 require('./assets/Scripts/Body');
-require('./assets/Scripts/Camera');
 require('./assets/Scripts/Controller');
 
                     }

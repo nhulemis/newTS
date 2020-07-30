@@ -12,26 +12,27 @@
       "props": {
         "diffuseColor": {
           "__type__": "cc.Color",
-          "r": 233,
-          "g": 227,
-          "b": 180,
+          "r": 236,
+          "g": 216,
+          "b": 66,
           "a": 255
         },
         "emissiveColor": {
           "__type__": "cc.Color",
-          "r": 214,
-          "g": 214,
-          "b": 203,
+          "r": 185,
+          "g": 172,
+          "b": 80,
           "a": 255
         }
       },
       "defines": {
-        "OUTPUT_TO_GAMMA": false,
+        "OUTPUT_TO_GAMMA": true,
         "USE_DIFFUSE_TEXTURE": false,
         "INPUT_IS_GAMMA": false,
         "USE_ALPHA_TEST": false,
         "USE_NORMAL_TEXTURE": false,
-        "USE_EMISSIVE": true
+        "USE_EMISSIVE": true,
+        "USE_SPECULAR": false
       }
     }
   }

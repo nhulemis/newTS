@@ -14,7 +14,7 @@ export default class Controller extends cc.Component {
     rotation:number = 0;
 
     @property
-    rotationSpeed: number = 10;
+    rotationSpeed: number = 70;
 
     // LIFE-CYCLE CALLBACKS:
 

@@ -32,7 +32,7 @@ export default class Body extends cc.Component {
 
     }
     onCollisionStay(event) {
-        
+        this.placeOnSurface = true;
     }
    
     onCollisionExit(event) {

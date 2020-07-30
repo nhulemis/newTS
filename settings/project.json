@@ -20,7 +20,7 @@
   "use-customize-simulator": true,
   "simulator-resolution": {
     "height": 800,
-    "width": 480
+    "width": 450
   },
   "facebook": {
     "appID": "",

@@ -51,6 +51,7 @@ var Body = /** @class */ (function (_super) {
         collider.on('collision-stay', this.onCollisionStay, this);
     };
     Body.prototype.onCollisionStay = function (event) {
+        this.placeOnSurface = true;
     };
     Body.prototype.onCollisionExit = function (event) {
         this.placeOnSurface = false;

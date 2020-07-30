@@ -13,7 +13,7 @@ export default class Attractor extends cc.Component {
 
     collider:cc.SphereCollider3D = null;
 
-    gravity: number = -100;
+    gravity: number = -900;
 
     Attact(object: cc.Node , dt: number)
     {
