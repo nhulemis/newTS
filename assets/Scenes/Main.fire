@@ -1237,12 +1237,7 @@
     "planet": {
       "__id__": 2
     },
-    "offset": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 16,
-      "z": 0
-    },
+    "offset": 20,
     "_id": "78+haruxVOIZsgDIE9yxeS"
   }
 ]

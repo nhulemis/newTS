@@ -30,6 +30,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var Attractor_1 = require("./Attractor");
+var SmoothFollow_1 = require("./SmoothFollow");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var Controller = /** @class */ (function (_super) {
     __extends(Controller, _super);
@@ -49,6 +50,7 @@ var Controller = /** @class */ (function (_super) {
             case cc.macro.KEY.a:
             case cc.macro.KEY.d:
                 this.rotation = 0;
+                SmoothFollow_1.default.smoothCamera.timeToReturnForward = 0;
                 break;
         }
     };

@@ -10,7 +10,9 @@ import Attractor from "./Attractor";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class SmoothCamera extends cc.Component {
+
+    static smoothCamera: SmoothCamera = null;
 
     @property(cc.Node)
     target: cc.Node = null;
@@ -18,12 +20,15 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     planet: cc.Node = null;
 
-    @property(cc.Vec3)
-    offset: cc.Vec3 = cc.Vec3.ZERO;
+    @property
+    offset:number = 20;
 
+    timeToReturnForward:number = 1;
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {}
+    onLoad () {
+        SmoothCamera.smoothCamera = this;
+    }
 
     start () {
 
@@ -33,9 +38,17 @@ export default class NewClass extends cc.Component {
 
     lateUpdate(dt){
 
-        let newPos = this.target.position.add( this.target.up.mulSelf(16));
+        let newPos = this.target.position.add( this.target.up.mulSelf(this.offset));
 
         this.node.setPosition(newPos);
+
+        if(this.timeToReturnForward <= 1)
+        {
+            let forward = this.target.forward;
+            let targetRotation = cc.Quat.rotationTo(cc.quat(), this.node.forward , forward).multiply(this.node.getRotation(cc.quat()));
+            this.node.setRotation(Attractor.slerp(cc.quat(), this.node.getRotation(cc.quat()),targetRotation,5*dt))
+            this.timeToReturnForward+= dt;
+        }
 
         let gravityUp = this.target.position.sub(this.planet.position).normalize();
 

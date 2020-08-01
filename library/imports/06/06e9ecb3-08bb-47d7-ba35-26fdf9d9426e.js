@@ -31,42 +31,54 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Attractor_1 = require("./Attractor");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var NewClass = /** @class */ (function (_super) {
-    __extends(NewClass, _super);
-    function NewClass() {
+var SmoothCamera = /** @class */ (function (_super) {
+    __extends(SmoothCamera, _super);
+    function SmoothCamera() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.target = null;
         _this.planet = null;
-        _this.offset = cc.Vec3.ZERO;
+        _this.offset = 20;
+        _this.timeToReturnForward = 1;
         return _this;
     }
+    SmoothCamera_1 = SmoothCamera;
     // LIFE-CYCLE CALLBACKS:
-    // onLoad () {}
-    NewClass.prototype.start = function () {
+    SmoothCamera.prototype.onLoad = function () {
+        SmoothCamera_1.smoothCamera = this;
+    };
+    SmoothCamera.prototype.start = function () {
     };
     // update (dt) {}
-    NewClass.prototype.lateUpdate = function (dt) {
-        var newPos = this.target.position.add(this.target.up.mulSelf(16));
+    SmoothCamera.prototype.lateUpdate = function (dt) {
+        var newPos = this.target.position.add(this.target.up.mulSelf(this.offset));
         this.node.setPosition(newPos);
+        if (this.timeToReturnForward <= 1) {
+            var forward = this.target.forward;
+            var targetRotation_1 = cc.Quat.rotationTo(cc.quat(), this.node.forward, forward).multiply(this.node.getRotation(cc.quat()));
+            this.node.setRotation(Attractor_1.default.slerp(cc.quat(), this.node.getRotation(cc.quat()), targetRotation_1, 5 * dt));
+            this.timeToReturnForward += dt;
+        }
         var gravityUp = this.target.position.sub(this.planet.position).normalize();
         var targetRotation = cc.quat();
         cc.Quat.rotationTo(targetRotation, this.node.up, gravityUp).multiply(this.node.getRotation(cc.quat()));
         this.node.setRotation(Attractor_1.default.slerp(cc.quat(), this.node.getRotation(cc.quat()), targetRotation, 50 * dt));
     };
+    var SmoothCamera_1;
+    SmoothCamera.smoothCamera = null;
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "target", void 0);
+    ], SmoothCamera.prototype, "target", void 0);
     __decorate([
         property(cc.Node)
-    ], NewClass.prototype, "planet", void 0);
+    ], SmoothCamera.prototype, "planet", void 0);
     __decorate([
-        property(cc.Vec3)
-    ], NewClass.prototype, "offset", void 0);
-    NewClass = __decorate([
+        property
+    ], SmoothCamera.prototype, "offset", void 0);
+    SmoothCamera = SmoothCamera_1 = __decorate([
         ccclass
-    ], NewClass);
-    return NewClass;
+    ], SmoothCamera);
+    return SmoothCamera;
 }(cc.Component));
-exports.default = NewClass;
+exports.default = SmoothCamera;
 
 cc._RF.pop();

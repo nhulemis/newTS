@@ -6,6 +6,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
 import Attractor from "./Attractor";
+import SmoothCamera from "./SmoothFollow";
 
 const {ccclass, property} = cc._decorator;
 
@@ -27,6 +28,7 @@ export default class Controller extends cc.Component {
             case cc.macro.KEY.a:
             case cc.macro.KEY.d:
                     this.rotation = 0;
+                    SmoothCamera.smoothCamera.timeToReturnForward = 0;
                 break;
 
         }
