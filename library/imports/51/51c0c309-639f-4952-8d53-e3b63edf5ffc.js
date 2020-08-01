@@ -58,10 +58,12 @@ var Controller = /** @class */ (function (_super) {
         switch (event.keyCode) {
             case cc.macro.KEY.a:
                 console.log("a");
+                SmoothFollow_1.default.smoothCamera.timeToReturnForward = 2;
                 this.rotation = 1;
                 break;
             case cc.macro.KEY.d:
                 console.log("d");
+                SmoothFollow_1.default.smoothCamera.timeToReturnForward = 2;
                 this.rotation = -1;
                 break;
         }

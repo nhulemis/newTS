@@ -37,10 +37,12 @@ export default class Controller extends cc.Component {
         switch (event.keyCode){
             case cc.macro.KEY.a:
                 console.log("a")
+                    SmoothCamera.smoothCamera.timeToReturnForward = 2;
                     this.rotation = 1;
                 break;
             case cc.macro.KEY.d:
                 console.log("d");
+                    SmoothCamera.smoothCamera.timeToReturnForward = 2;
                     this.rotation = -1;
                 break;
 

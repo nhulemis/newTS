@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "smokeBurn",
+    "texture": "ab831205-d6b7-4c62-91f2-611c027fc019",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      72,
+      167
+    ],
+    "offset": [
+      0,
+      6
+    ],
+    "originalSize": [
+      72,
+      179
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

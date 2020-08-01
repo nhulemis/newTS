@@ -60,7 +60,7 @@ export default class Body extends cc.Component {
         {
             let position = this.node.position;
             let deltaDistance = this.node.forward.mul(this.speed * dt);
-            this.node.position = position.sub(deltaDistance);
+           // this.node.position = position.sub(deltaDistance);
         }
         
 

@@ -71,7 +71,7 @@ var Body = /** @class */ (function (_super) {
         if (this.placeOnSurface) {
             var position = this.node.position;
             var deltaDistance = this.node.forward.mul(this.speed * dt);
-            this.node.position = position.sub(deltaDistance);
+            // this.node.position = position.sub(deltaDistance);
         }
     };
     __decorate([

@@ -5,8 +5,8 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": 192,
-      "y": 108,
+      "x": 379,
+      "y": 31,
       "width": 1536,
       "height": 824,
       "layout": {
@@ -18,9 +18,9 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 276.984375,
+                "height": 368,
                 "type": "panel",
-                "width": 245.671875
+                "width": 311
               },
               {
                 "active": 0,
@@ -28,14 +28,14 @@
                   "assets",
                   "cloud-function"
                 ],
-                "height": 426,
+                "height": 567,
                 "type": "panel",
-                "width": 245.671875
+                "width": 311
               }
             ],
-            "height": 706,
+            "height": 938,
             "type": "dock-v",
-            "width": 245.671875
+            "width": 311
           },
           {
             "children": [
@@ -44,25 +44,25 @@
                 "children": [
                   "scene"
                 ],
-                "height": 437,
+                "height": 581,
                 "type": "panel",
-                "width": 903.796875
+                "width": 1141.984375
               },
               {
-                "active": 0,
+                "active": 2,
                 "children": [
                   "console",
                   "timeline",
                   "game-window"
                 ],
-                "height": 266,
+                "height": 354,
                 "type": "panel",
-                "width": 903.796875
+                "width": 1141.984375
               }
             ],
-            "height": 706,
+            "height": 938,
             "type": "dock-v",
-            "width": 903.796875
+            "width": 1141.984375
           },
           {
             "active": 0,
@@ -71,9 +71,9 @@
               "cocos-services",
               "node-library"
             ],
-            "height": 706,
+            "height": 938,
             "type": "panel",
-            "width": 364.515625
+            "width": 461
           }
         ],
         "type": "dock-h"
@@ -90,9 +90,7 @@
         "cocos-services",
         "node-library"
       ]
-    },
-    "worker": {},
-    "window-1596288130211": {}
+    }
   },
   "panels": {
     "project-settings": {
@@ -106,11 +104,17 @@
       "y": 240,
       "width": 600,
       "height": 565
+    },
+    "curve-editor": {
+      "x": 702,
+      "y": 240,
+      "width": 516,
+      "height": 539
     }
   },
   "panelLabelWidth": {
     "project-settings": null,
-    "inspector": null,
+    "inspector": "32.4713%",
     "preferences": null
   }
 }

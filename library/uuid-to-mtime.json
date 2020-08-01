@@ -515,8 +515,8 @@
     "relativePath": "Scripts"
   },
   "570c2813-45a2-430a-95a6-55d5846a7730": {
-    "asset": 1596290814312,
-    "meta": 1596290814323,
+    "asset": 1596303064334,
+    "meta": 1596303064346,
     "relativePath": "Scenes\\Main.fire"
   },
   "9d173f39-201c-433a-93c3-540e63a2e56f": {
@@ -525,8 +525,8 @@
     "relativePath": "Materials\\Planet_mat.mtl"
   },
   "93ac1074-0988-4e61-bf5c-0eea48779b33": {
-    "asset": 1596287797404,
-    "meta": 1596288032630,
+    "asset": 1596300180882,
+    "meta": 1596300351030,
     "relativePath": "Sprites"
   },
   "64476252-3081-436c-8c5e-5284d85441c0": {
@@ -589,19 +589,39 @@
     "meta": 1596288031981,
     "relativePath": "Model\\car.blend"
   },
-  "cfaf721a-8e51-408f-86f6-0816a2f3ed0d": {
-    "asset": 1596287797397,
-    "meta": 1596288032538,
-    "relativePath": "Scripts\\Body.ts"
-  },
-  "51c0c309-639f-4952-8d53-e3b63edf5ffc": {
-    "asset": 1596288506947,
-    "meta": 1596288705869,
-    "relativePath": "Scripts\\Controller.ts"
-  },
   "06e9ecb3-08bb-47d7-ba35-26fdf9d9426e": {
     "asset": 1596289208572,
     "meta": 1596289628675,
     "relativePath": "Scripts\\SmoothFollow.ts"
+  },
+  "51c0c309-639f-4952-8d53-e3b63edf5ffc": {
+    "asset": 1596298943991,
+    "meta": 1596298947882,
+    "relativePath": "Scripts\\Controller.ts"
+  },
+  "6b1ec9c6-30f3-47c0-abf4-60e41f2ab342": {
+    "asset": 1596299024401,
+    "meta": 1596300351028,
+    "relativePath": "Prefabs"
+  },
+  "b31a7d40-315c-4c7f-85a3-fe12eba9075b": {
+    "asset": 1596300178500,
+    "meta": 1596300180903,
+    "relativePath": "Sprites\\smoke.png"
+  },
+  "8b924282-a9b9-4658-b9f6-87bf15f636dd": {
+    "asset": 1596302190616,
+    "meta": 1596302190624,
+    "relativePath": "Materials\\Smoke_mat.mtl"
+  },
+  "ab831205-d6b7-4c62-91f2-611c027fc019": {
+    "asset": 1596302066576,
+    "meta": 1596302068626,
+    "relativePath": "Sprites\\smokeBurn.png"
+  },
+  "cfaf721a-8e51-408f-86f6-0816a2f3ed0d": {
+    "asset": 1596302496926,
+    "meta": 1596302498110,
+    "relativePath": "Scripts\\Body.ts"
   }
 }
